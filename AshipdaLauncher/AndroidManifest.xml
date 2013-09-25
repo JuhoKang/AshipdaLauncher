@@ -25,7 +25,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         
-        <!-- android state portrait -->
+        <!-- android state fixed about portrait -->
         <activity
             android:name="com.example.ashipdalauncher.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard"
