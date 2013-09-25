@@ -36,7 +36,7 @@ implements OnClickListener, OnCheckedChangeListener  {
 	private SimpleDateFormat mClockFormat, mDateFormat;
 	private TextView mClock, mDate, mReDial;
 	private Uri uri;
-
+// test
 	private void initResource() { //now time, date, redial information data set int here
 		this.mClock = (TextView)this.findViewById(R.id.btnClock);
 		this.mClockFormat = new SimpleDateFormat("HH"+":"+"mm", Locale.getDefault());
