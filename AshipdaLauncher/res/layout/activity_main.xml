@@ -26,9 +26,10 @@
                 android:id="@+id/btnDate"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/wifion3"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:background="@drawable/datexml"
+                android:textSize="25sp"
+                 >
+            </Button>
         </LinearLayout>
 
         <LinearLayout
@@ -40,11 +41,10 @@
                 android:id="@+id/btnClock"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/wifion2"
-                android:gravity="center"
-                android:textIsSelectable="false"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:background="@drawable/timexml"
+                
+                android:textSize="25sp"
+             />
         </LinearLayout>
 
         <LinearLayout
@@ -54,14 +54,19 @@
 
             <!-- 와이파이 토글버튼 -->
 
-            <ToggleButton
+         <!--   <ToggleButton
                 android:id="@+id/btnWifi"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@drawable/toggle_bg"
                 android:textOff=""
-                android:textOn="" />
+                android:textOn="" />-->
             <!-- background - > res @drawable/toggle_bg.xml -->
+            <Button
+                android:id="@+id/btnMap"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/mapxml" />
 
         </LinearLayout>
     </LinearLayout>
@@ -86,7 +91,7 @@
                 android:id="@+id/btnInternet"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/internet" />
+                android:background="@drawable/internetxml" />
         </LinearLayout>
 
         <LinearLayout
@@ -98,7 +103,7 @@
                 android:id="@+id/btnSos"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/sos" />
+                android:background="@drawable/sosxml" />
         </LinearLayout>
 
         <LinearLayout
@@ -110,7 +115,7 @@
                 android:id="@+id/btnApp"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/folder" />
+                android:background="@drawable/folderxml" />
         </LinearLayout>
     </LinearLayout>
     <!-- sec layout end -->
@@ -134,7 +139,7 @@
                 android:id="@+id/btnMms"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/mms" />
+               android:background="@drawable/mmsxml" /> 
         </LinearLayout>
 
         <LinearLayout
@@ -146,7 +151,7 @@
                 android:id="@+id/btnCamera"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/camera" />
+               android:background="@drawable/cameraxml" />
         </LinearLayout>
 
         <LinearLayout
@@ -157,8 +162,8 @@
             <Button
                 android:id="@+id/btnGallery"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@drawable/gallery" />
+                android:layout_height="fill_parent" 
+                 android:background="@drawable/galleryxml" /> 
         </LinearLayout>
     </LinearLayout>
     <!-- thr layout end -->
@@ -182,7 +187,7 @@
                 android:id="@+id/btnPhoneCall"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/phonecall" />
+                android:background="@drawable/phonecallxml" />
         </LinearLayout>
 
         <LinearLayout
@@ -194,10 +199,9 @@
                 android:id="@+id/btnRedial"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:textSize="35sp"
-                android:textStyle="bold" />
+                android:textSize="30sp"
+           		android:background="@drawable/reredial" />
         </LinearLayout>
     </LinearLayout>
     <!-- for layout end -->
-
 </LinearLayout>

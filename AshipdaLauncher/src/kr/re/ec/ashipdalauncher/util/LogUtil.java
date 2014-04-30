@@ -1,4 +1,4 @@
-package com.example.ashipdalauncher.util;
+package kr.re.ec.ashipdalauncher.util;
 
 
 /**
