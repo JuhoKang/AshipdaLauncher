@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import com.example.ashipdalauncher.*;
+import kr.re.ec.ashipdalauncher.R;
 import kr.re.ec.ashipdalauncher.util.LogUtil;
 import android.net.Uri;
 import android.net.wifi.WifiManager;

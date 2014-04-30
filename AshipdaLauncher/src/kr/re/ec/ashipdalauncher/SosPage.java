@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.ashipdalauncher.*;
+import kr.re.ec.ashipdalauncher.R;
 import kr.re.ec.ashipdalauncher.util.LogUtil;
 import kr.re.ec.ashipdalauncher.dbhelper.SosDataHelper;
 import kr.re.ec.ashipdalauncher.objects.Sos;

@@ -2,7 +2,7 @@ package kr.re.ec.ashipdalauncher;
 
 import java.util.ArrayList;
 
-import com.example.ashipdalauncher.*;
+import kr.re.ec.ashipdalauncher.R;
 import kr.re.ec.ashipdalauncher.dbhelper.SosDataHelper;
 import kr.re.ec.ashipdalauncher.objects.Sos;
 import kr.re.ec.ashipdalauncher.util.LogUtil;

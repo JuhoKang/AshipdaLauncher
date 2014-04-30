@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.example.ashipdalauncher.*;
+import kr.re.ec.ashipdalauncher.R;
 import kr.re.ec.ashipdalauncher.util.LogUtil;
 import android.app.Activity;
 import android.app.ActivityManager;
