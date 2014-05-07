@@ -4,28 +4,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import kr.re.ec.ashipdalauncher.R;
 import kr.re.ec.ashipdalauncher.util.LogUtil;
-import android.net.Uri;
-import android.net.wifi.WifiManager;
-import android.os.*;
-import android.provider.CallLog;
-import android.provider.CallLog.Calls;
-import android.provider.MediaStore;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.util.Log;
-import android.view.*;
+import android.net.Uri;
+import android.net.wifi.WifiManager;
+import android.os.Bundle;
+import android.provider.CallLog;
+import android.provider.CallLog.Calls;
+import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 
 public class MainActivity extends Activity 
@@ -120,10 +118,13 @@ implements OnClickListener, OnCheckedChangeListener  {
 			
 			//setting wifi button
 			//ToggleButton wifi=(ToggleButton)findViewById(R.id.btnWifi);
-			//wifi.setOnClickListener((OnClickListener)this);\
+			//wifi.setOnClickListener((OnClickListener)this);
+			
+			//setting Map button
+			
 			Button btn12 = (Button)findViewById(R.id.btnMap);
 			btn12.setOnClickListener((OnClickListener) this);
-			
+		
 			//setting Date button
 			Button btn1=(Button)findViewById(R.id.btnDate);
 			btn1.setOnClickListener((OnClickListener) this);
@@ -199,8 +200,10 @@ implements OnClickListener, OnCheckedChangeListener  {
 				break;
 				*/
 			case R.id.btnMap:
-				Intent it_map = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:37.5,127.0"));
-				startActivity(it_map);
+				//Intent it_map = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:37.5,127.0"));
+				//startActivity(it_map);
+				Intent it_magnifier = new Intent(this,Magnifier.class);
+				startActivity(it_magnifier);
 				LogUtil.v("Clicked");
 				break;
 

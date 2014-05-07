@@ -66,7 +66,8 @@
                 android:id="@+id/btnMap"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/btnsosaddxml" />
+                android:background="@drawable/btnsosaddxml" /> 
+                <!--** disign needs to be changed **-->
 
         </LinearLayout>
     </LinearLayout>
