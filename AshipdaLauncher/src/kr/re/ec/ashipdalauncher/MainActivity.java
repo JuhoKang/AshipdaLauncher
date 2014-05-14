@@ -46,65 +46,7 @@ implements OnClickListener, OnCheckedChangeListener  {
 		updateClockTime();
 	}
 
-	// date, time , redial  data set, and show in window	
-	private void updateClockTime(){
-		new Thread(){
-			public void run(){
-				while (true){
-					try{
-						runOnUiThread(new Runnable() {
-							@Override
-							public void run() {
-								mClock.setText(mClockFormat.format(new Date()));
-								mDate.setText(mDateFormat.format(new Date()));
-								//LogUtil.v(mClockFormat.format(new Date()));
-								//redial start
-								//TODO:if you have time..... query modify to only set last number of my send list.not all phone call list
-								try {
-									Cursor c = getContentResolver().query(Calls.CONTENT_URI, null, CallLog.Calls.TYPE+"=2", null, Calls.DATE + " DESC");
-
-									if (c != null) {
-										if (c.moveToFirst()) {
-											c.getString(c.getColumnIndex(Calls.CACHED_NAME));
-											
-											uri = Uri.parse("tel:" + c.getString(c.getColumnIndex(Calls.NUMBER)));
-											// LogUtil.v("uri: " + uri.toString());
-										} 
-										// Uri is member var
-									}
-									
-									//LogUtil.v(c.getString(c.getColumnIndex(Calls.NUMBER)));
-									mReDial.setText(c.getString(c.getColumnIndex(Calls.NUMBER))); 
-									//Last num send to btn11(redial btn)
-
-									c.close();
-									//end redial
-
-								}
-								catch (Exception e) {
-									LogUtil.w(e.toString());
-								}
-							}
-						});
-						Thread.sleep(700);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-				}
-			}.start();
-		}
-
-		//send wifi state 
-		public static boolean isWifiEnabled(Context context) {
-
-			WifiManager wifiMgr = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
-			if(wifiMgr.getWifiState() == WifiManager.WIFI_STATE_ENABLED) {
-				return true;
-			} else {
-				return false;
-			}
-		}
+	
 		
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -121,17 +63,16 @@ implements OnClickListener, OnCheckedChangeListener  {
 			//wifi.setOnClickListener((OnClickListener)this);
 			
 			//setting Map button
-			
-			Button btn12 = (Button)findViewById(R.id.btnMap);
-			btn12.setOnClickListener((OnClickListener) this);
+			Button btnmap = (Button)findViewById(R.id.btnMap);
+			btnmap.setOnClickListener((OnClickListener) this);
 		
 			//setting Date button
-			Button btn1=(Button)findViewById(R.id.btnDate);
-			btn1.setOnClickListener((OnClickListener) this);
+			Button btndate=(Button)findViewById(R.id.btnDate);
+			btndate.setOnClickListener((OnClickListener) this);
 			
 			//setting Clock button
-			Button btn2=(Button)findViewById(R.id.btnClock);
-			btn2.setOnClickListener((OnClickListener) this);
+			Button btnclock=(Button)findViewById(R.id.btnClock);
+			btnclock.setOnClickListener((OnClickListener) this);
 			
 			//setting Internet button
 			Button btninternet=(Button)findViewById(R.id.btnInternet);
@@ -142,28 +83,28 @@ implements OnClickListener, OnCheckedChangeListener  {
 			btnsos.setOnClickListener((OnClickListener) this);
 			
 			//setting App button
-			Button btn6=(Button)findViewById(R.id.btnApp);
-			btn6.setOnClickListener((OnClickListener) this);
+			Button btnapp=(Button)findViewById(R.id.btnApp);
+			btnapp.setOnClickListener((OnClickListener) this);
 			
 			//setting Message button
-			Button btn7=(Button)findViewById(R.id.btnMms);
-			btn7.setOnClickListener((OnClickListener) this);
+			Button btnmms=(Button)findViewById(R.id.btnMms);
+			btnmms.setOnClickListener((OnClickListener) this);
 			
 			//setting Camera button
-			Button btn8=(Button)findViewById(R.id.btnCamera);
-			btn8.setOnClickListener((OnClickListener) this);
+			Button btncamera=(Button)findViewById(R.id.btnCamera);
+			btncamera.setOnClickListener((OnClickListener) this);
 			
 			//setting Gallery button
-			Button btn9=(Button)findViewById(R.id.btnGallery);
-			btn9.setOnClickListener((OnClickListener) this);
+			Button btngallery=(Button)findViewById(R.id.btnGallery);
+			btngallery.setOnClickListener((OnClickListener) this);
 			
 			//setting Call button
-			Button btn10=(Button)findViewById(R.id.btnPhoneCall);
-			btn10.setOnClickListener((OnClickListener) this);
+			Button btnphonecall=(Button)findViewById(R.id.btnPhoneCall);
+			btnphonecall.setOnClickListener((OnClickListener) this);
 			
 			//setting Redial button
-			Button btn11=(Button)findViewById(R.id.btnRedial);
-			btn11.setOnClickListener((OnClickListener) this);
+			Button btnredial=(Button)findViewById(R.id.btnRedial);
+			btnredial.setOnClickListener((OnClickListener) this);
 			
 			//setting button end!
 
@@ -192,7 +133,7 @@ implements OnClickListener, OnCheckedChangeListener  {
 				startActivity(it_clock);
 				break;
 
-				/*
+				/*deprecated
 			case R.id.btnWifi:
 				final WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 				// button clicked wifi changed
@@ -282,7 +223,6 @@ implements OnClickListener, OnCheckedChangeListener  {
 			}
 		}
 
-
 		@Override
 		public boolean onCreateOptionsMenu(Menu menu) {
 			// Inflate the menu; this adds items to the action bar if it is present.
@@ -301,5 +241,65 @@ implements OnClickListener, OnCheckedChangeListener  {
 		public void onBackPressed(){
 			//super.onBackPressed();
 		}
+		
+		// date, time , redial  data set, and show in window	
+		private void updateClockTime(){
+			new Thread(){
+				public void run(){
+					while (true){
+						try{
+							runOnUiThread(new Runnable() {
+								@Override
+								public void run() {
+									mClock.setText(mClockFormat.format(new Date()));
+									mDate.setText(mDateFormat.format(new Date()));
+									//LogUtil.v(mClockFormat.format(new Date()));
+									//redial start
+									//TODO:if you have time..... query modify to only set last number of my send list.not all phone call list
+									try {
+										Cursor c = getContentResolver().query(Calls.CONTENT_URI, null, CallLog.Calls.TYPE+"=2", null, Calls.DATE + " DESC");
+
+										if (c != null) {
+											if (c.moveToFirst()) {
+												c.getString(c.getColumnIndex(Calls.CACHED_NAME));
+												
+												uri = Uri.parse("tel:" + c.getString(c.getColumnIndex(Calls.NUMBER)));
+												// LogUtil.v("uri: " + uri.toString());
+											} 
+											// Uri is member var
+										}
+										
+										//LogUtil.v(c.getString(c.getColumnIndex(Calls.NUMBER)));
+										mReDial.setText(c.getString(c.getColumnIndex(Calls.NUMBER))); 
+										//Last num send to btn11(redial btn)
+
+										c.close();
+										//end redial
+
+									}
+									catch (Exception e) {
+										LogUtil.w(e.toString());
+									}
+								}
+							});
+							Thread.sleep(700);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+						}
+					}
+				}.start();
+			}
+
+			//send wifi state 
+			public static boolean isWifiEnabled(Context context) {
+
+				WifiManager wifiMgr = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+				if(wifiMgr.getWifiState() == WifiManager.WIFI_STATE_ENABLED) {
+					return true;
+				} else {
+					return false;
+				}
+			}
 
 }
